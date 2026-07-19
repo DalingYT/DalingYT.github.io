@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daling — dev & creador</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero {
+    padding: 90px 0 70px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(38px, 6vw, 58px);
+    line-height: 1.05;
+    margin: 16px 0 20px;
+  }
+  .hero p { color: var(--text-dim); font-size: 17px; max-width: 46ch; }
+  .cta-row { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid var(--line);
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .btn:hover { transform: translateY(-2px); border-color: var(--cyan); }
+  .btn.primary { background: var(--grad); color: #0a0a12; border: none; }
+  .btn.primary:hover { filter: brightness(1.08); }
+
+  /* Signature: block-run grid, GD-terrain inspired */
+  .blockgrid {
+    position: relative;
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 6px;
+  }
+  .blockgrid div {
+    border-radius: 4px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .blockgrid div:hover {
+    background: var(--grad);
+    border-color: transparent;
+    transform: scale(1.08);
+  }
+  .blockgrid div.lit { background: linear-gradient(135deg, var(--cyan), var(--magenta)); border-color: transparent; opacity: 0.85; }
+
+  section { padding: 60px 0; }
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 { font-size: 28px; margin-top: 10px; }
+
+  .cardgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .card:hover { border-color: var(--cyan); transform: translateY(-3px); }
+  .card .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--magenta);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .card h3 { font-size: 18px; margin: 8px 0 6px; }
+  .card p { color: var(--text-dim); font-size: 14px; }
+
+  .linkbar { display: flex; gap: 14px; flex-wrap: wrap; }
+  .linkbar a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text-dim);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .linkbar a:hover { color: var(--cyan); border-color: var(--cyan); }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; padding-top: 50px; }
+    .blockgrid { max-width: 280px; margin: 0 auto; }
+    .navlinks { gap: 16px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">DALING<span>.</span></div>
+    <div class="navlinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="geometrydash/index.html">Geometry Dash</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Dev & creador</span>
+      <h1>Hago cosas en<br><span class="grad-text">Roblox</span> y <span class="grad-text">Geometry Dash</span>.</h1>
+      <p>Dev, creador de contenido y jugador. Construyo herramientas, niveles y proyectos — algunos terminados, otros eternamente "en progreso".</p>
+      <div class="cta-row">
+        <a class="btn primary" href="geometrydash/index.html">Ver Geometry Dash →</a>
+        <a class="btn" href="https://www.youtube.com/@DalingYT" target="_blank" rel="noopener">Canal de YouTube</a>
+      </div>
+    </div>
+    <div class="blockgrid" id="grid" aria-hidden="true"></div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Encuéntrame</span>
+      <h2>Links</h2>
+    </div>
+    <div class="linkbar">
+      <a href="https://www.youtube.com/@DalingYT" target="_blank" rel="noopener">YouTube — DalingYT</a>
+      <a href="https://www.roblox.com/es/users/5090256817/profile#!/about" target="_blank" rel="noopener">Roblox</a>
+      <a href="https://discord.gg/gMcGegS55y" target="_blank" rel="noopener">Discord</a>
+    </div>
+  </section>
+</div>
+
+<footer>dalingyt.github.io — hecho a mano, sin frameworks</footer>
+
+<script>
+  // Randomly "lights up" a few blocks on load for a subtle terrain feel
+  const grid = document.getElementById('grid');
+  for (let i = 0; i < 25; i++) {
+    const d = document.createElement('div');
+    if (Math.random() < 0.22) d.classList.add('lit');
+    grid.appendChild(d);
+  }
+</script>
+
+</body>
+</html>
