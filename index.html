@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Geometry Dash — Daling</title>
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="icon" type="image/png" href="../favicon-32.png">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<meta property="og:title" content="Geometry Dash — Daling">
-<meta property="og:description" content="Niveles, mods de Geode y contenido de Geometry Dash.">
+<title>Daling — dev & creador</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Daling — dev & creador">
+<meta property="og:description" content="Dev, creador de contenido y jugador. Roblox y Geometry Dash.">
 <meta property="og:image" content="https://dalingyt.github.io/og-image.png">
-<meta property="og:url" content="https://dalingyt.github.io/geometrydash/">
+<meta property="og:url" content="https://dalingyt.github.io/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,21 +19,19 @@
 <style>
 /* ── Tokens ─────────────────────────────────────── */
 :root {
-  --bg:         #04040f;
-  --bg-2:       #0a0a1c;
-  --bg-3:       #0f0f28;
-  --line:       #1a1a3a;
-  --line-2:     #252550;
-  --blue:       #3a7bff;
-  --blue-glow:  rgba(58,123,255,.35);
-  --ice:        #80c4ff;
-  --spark:      #c084fc;
-  --spark-glow: rgba(192,132,252,.3);
-  --gold:       #fce94f;
-  --green:      #67e480;
-  --text:       #e8eeff;
-  --muted:      #6670a0;
-  --mono:       'JetBrains Mono', monospace;
+  --bg:        #04040f;
+  --bg-2:      #0a0a1c;
+  --bg-3:      #0f0f28;
+  --line:      #1a1a3a;
+  --line-2:    #252550;
+  --blue:      #3a7bff;
+  --blue-glow: rgba(58,123,255,.35);
+  --ice:       #80c4ff;
+  --spark:     #c084fc;
+  --spark-glow:rgba(192,132,252,.3);
+  --text:      #e8eeff;
+  --muted:     #6670a0;
+  --mono:      'JetBrains Mono', monospace;
 }
 
 /* ── Reset ──────────────────────────────────────── */
@@ -91,6 +89,7 @@ nav .wrap {
   font-size: 17px;
   font-weight: 900;
   letter-spacing: 2px;
+  color: var(--text);
 }
 .brand em { color: var(--blue); font-style: normal; }
 .navlinks { display: flex; gap: 28px; font-size: 13.5px; font-weight: 500; }
@@ -108,7 +107,54 @@ nav .wrap {
   background: linear-gradient(90deg, var(--blue), var(--spark));
 }
 
-/* ── Buttons ────────────────────────────────────── */
+/* ── Hero ───────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 48px;
+  align-items: center;
+  padding: 100px 0 80px;
+}
+.hero-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--blue);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-label::before {
+  content: '';
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--blue);
+}
+.hero h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(32px, 4.5vw, 54px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+.hero h1 .hi { color: var(--muted); font-size: .6em; display: block; margin-bottom: 8px; letter-spacing: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 400; }
+.hero h1 .name { color: var(--text); }
+.hero h1 .role {
+  background: linear-gradient(90deg, var(--blue), var(--spark));
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+.hero-desc {
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 44ch;
+  margin-bottom: 32px;
+  line-height: 1.65;
+}
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 11px 20px;
@@ -117,8 +163,8 @@ nav .wrap {
   font-size: 13.5px;
   border: 1px solid var(--line-2);
   color: var(--text);
-  background: var(--bg-2);
   transition: border-color .15s, color .15s, transform .15s, box-shadow .15s;
+  background: var(--bg-2);
 }
 .btn:hover {
   border-color: var(--blue);
@@ -136,6 +182,50 @@ nav .wrap {
   box-shadow: 0 0 24px var(--blue-glow), 0 0 40px var(--spark-glow);
 }
 
+/* ── Terminal card ──────────────────────────────── */
+.terminal {
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 13px;
+  box-shadow: 0 0 60px rgba(58,123,255,.12), 0 20px 40px rgba(0,0,0,.5);
+}
+.terminal-bar {
+  background: var(--bg-3);
+  border-bottom: 1px solid var(--line);
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #febc2e; }
+.dot.g { background: #28c840; }
+.terminal-title {
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: 8px;
+  letter-spacing: .5px;
+}
+.terminal-body { padding: 20px 18px 24px; line-height: 2; }
+.t-muted { color: var(--muted); }
+.t-blue  { color: var(--ice); }
+.t-spark { color: var(--spark); }
+.t-green { color: #67e480; }
+.t-warn  { color: #fce94f; }
+.t-line  { display: block; }
+.cursor {
+  display: inline-block;
+  width: 8px; height: 14px;
+  background: var(--blue);
+  vertical-align: middle;
+  animation: blink 1.1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
 /* ── Section base ───────────────────────────────── */
 section { padding: 72px 0; }
 section + section { border-top: 1px solid var(--line); }
@@ -151,224 +241,137 @@ section + section { border-top: 1px solid var(--line); }
 .sec-label::before { content:''; display:block; width:16px; height:1px; background:var(--spark); }
 .sec-h { font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 36px; }
 
-/* ── Hero ───────────────────────────────────────── */
-.hero {
-  padding: 90px 0 72px;
-  text-align: center;
-}
-.hero-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--blue);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-}
-.hero-label::before,
-.hero-label::after { content:''; display:block; width:32px; height:1px; background:var(--blue); }
-.hero h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(30px, 5vw, 52px);
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-.hero h1 .gd {
-  background: linear-gradient(90deg, var(--spark), var(--blue));
-  -webkit-background-clip: text; background-clip: text;
-  color: transparent;
-}
-.hero p {
-  color: var(--muted);
-  font-size: 16px;
-  max-width: 50ch;
-  margin: 0 auto;
-  line-height: 1.65;
-}
-
-/* ── Angelic feature card ───────────────────────── */
-.angelic-card {
-  position: relative;
-  border-radius: 14px;
-  padding: 40px;
-  background: linear-gradient(150deg, rgba(192,132,252,.1), rgba(58,123,255,.08));
+/* ── Repo highlight ─────────────────────────────── */
+.repo-card {
+  background: linear-gradient(135deg, rgba(58,123,255,.1), rgba(192,132,252,.08));
   border: 1px solid var(--line-2);
-  overflow: hidden;
-  transition: border-color .15s, box-shadow .15s;
-}
-.angelic-card:hover {
-  border-color: var(--spark);
-  box-shadow: 0 0 48px var(--spark-glow);
-}
-/* glow orb */
-.angelic-card::before {
-  content: '';
-  position: absolute;
-  top: -30%; right: -5%;
-  width: 360px; height: 360px;
-  background: radial-gradient(circle, var(--spark) 0%, transparent 70%);
-  opacity: .18;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.angelic-inner { position: relative; z-index: 1; }
-
-.angelic-top {
+  border-radius: 12px;
+  padding: 28px 32px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
+  transition: border-color .15s, box-shadow .15s;
   flex-wrap: wrap;
-  margin-bottom: 24px;
 }
-.difficulty-badge {
+.repo-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 0 32px var(--blue-glow);
+}
+.repo-info { display: flex; align-items: center; gap: 16px; }
+.repo-icon {
+  width: 44px; height: 44px;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.repo-name {
   font-family: var(--mono);
-  font-size: 11px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  background: rgba(192,132,252,.15);
-  border: 1px solid rgba(192,132,252,.3);
-  color: var(--spark);
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-.angelic-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(26px, 4vw, 36px);
-  font-weight: 900;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #fff, var(--spark));
-  -webkit-background-clip: text; background-clip: text;
-  color: transparent;
-}
-.angelic-desc {
-  color: var(--muted);
   font-size: 15px;
-  max-width: 58ch;
-  margin-bottom: 28px;
-  line-height: 1.65;
-}
-
-/* Progress bar */
-.progress-wrap { margin-bottom: 28px; }
-.progress-meta {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.progress-meta span:last-child { color: var(--spark); }
-.progressbar {
-  height: 8px;
-  border-radius: 10px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid var(--line);
-  overflow: hidden;
-}
-.progressbar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--spark));
-  border-radius: 10px;
-  transition: width .6s ease;
-}
-
-/* Stats */
-.statrow {
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-}
-.stat { font-family: var(--mono); }
-.stat .num {
-  font-size: 24px;
-  font-weight: 700;
   color: var(--ice);
   display: block;
-  line-height: 1.2;
+  margin-bottom: 2px;
 }
-.stat .lbl {
-  font-size: 11px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+.repo-desc { font-size: 13px; color: var(--muted); }
+.repo-badge {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
 }
-
-.angelic-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-
-/* ID copy box */
-.id-box {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+.badge {
   font-family: var(--mono);
-  font-size: 13px;
-  padding: 10px 16px;
-  border-radius: 7px;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
   border: 1px solid var(--line-2);
-  background: var(--bg-3);
-  color: var(--gold);
-  cursor: pointer;
-  transition: border-color .15s;
-  user-select: all;
+  color: var(--muted);
 }
-.id-box:hover { border-color: var(--gold); }
-.id-box .id-label { color: var(--muted); font-size: 11px; }
+.badge.html { border-color: rgba(255,110,55,.4); color: #ff9050; }
 
-/* ── Mods grid ──────────────────────────────────── */
-.mods-grid {
+/* ── Project cards ──────────────────────────────── */
+.proj-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 16px;
 }
-.mod-card {
+.proj-card {
   background: var(--bg-2);
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 22px;
   position: relative;
   overflow: hidden;
-  transition: border-color .15s, transform .15s;
+  transition: border-color .15s, transform .15s, box-shadow .15s;
 }
-.mod-card::before {
+.proj-card::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0;
   height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--spark));
   opacity: 0;
   transition: opacity .2s;
 }
-.mod-card.rejected::before { background: #ff5f57; }
-.mod-card.dev::before     { background: linear-gradient(90deg, var(--blue), var(--spark)); }
-.mod-card.exp::before     { background: var(--gold); }
-.mod-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
-.mod-card:hover::before { opacity: 1; }
-
-.mod-status {
+.proj-card:hover {
+  border-color: var(--line-2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+}
+.proj-card:hover::before { opacity: 1; }
+.proj-platform {
   font-family: var(--mono);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  color: var(--spark);
   margin-bottom: 10px;
   display: flex; align-items: center; gap: 6px;
 }
-.mod-status.rejected { color: #ff7070; }
-.mod-status.dev      { color: var(--blue); }
-.mod-status.exp      { color: var(--gold); }
+.proj-card h3 { font-size: 17px; margin-bottom: 6px; }
+.proj-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.status-pill {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  margin-top: 14px;
+}
+.status-pill.wip { background: rgba(252,233,79,.1); color: #fce94f; border: 1px solid rgba(252,233,79,.2); }
+.status-pill.live { background: rgba(103,228,128,.1); color: #67e480; border: 1px solid rgba(103,228,128,.2); }
 
-.mod-card h3 { font-size: 17px; margin-bottom: 8px; }
-.mod-card p  { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
-
-/* ── Content / YouTube ──────────────────────────── */
-.yt-row {
+/* ── Links section ──────────────────────────────── */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.link-card {
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  transition: border-color .15s, background .15s, transform .15s;
 }
-.yt-row p { color: var(--muted); font-size: 15px; max-width: 48ch; }
+.link-card:hover {
+  border-color: var(--blue);
+  background: var(--bg-3);
+  transform: translateX(4px);
+}
+.link-icon {
+  font-size: 22px;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-3);
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.link-info { overflow: hidden; }
+.link-name { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.link-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 1px; }
 
 /* ── Footer ─────────────────────────────────────── */
 footer {
@@ -385,11 +388,14 @@ footer a { color: var(--blue); transition: color .15s; }
 footer a:hover { color: var(--ice); }
 
 /* ── Responsive ─────────────────────────────────── */
-@media (max-width: 600px) {
-  .angelic-card { padding: 24px 20px; }
-  .angelic-top { flex-direction: column; gap: 12px; }
-  .statrow { gap: 20px; }
+@media (max-width: 820px) {
+  .hero { grid-template-columns: 1fr; padding: 60px 0 50px; gap: 36px; }
+  .terminal { max-width: 100%; }
+  .repo-card { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
   .navlinks { gap: 16px; font-size: 12px; }
+  .hero h1 { font-size: 30px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -403,8 +409,8 @@ footer a:hover { color: var(--ice); }
   <div class="wrap">
     <div class="brand">DAL<em>ING</em></div>
     <div class="navlinks">
-      <a href="../index.html">Inicio</a>
-      <a href="index.html" class="active">Geometry Dash</a>
+      <a href="index.html" class="active">Inicio</a>
+      <a href="geometrydash/index.html">Geometry Dash</a>
       <a href="https://github.com/DalingYT/DalingYT.github.io" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
@@ -413,101 +419,155 @@ footer a:hover { color: var(--ice); }
 <!-- HERO -->
 <div class="wrap">
   <section class="hero">
-    <div class="hero-label">Nivel · Mods · Contenido</div>
-    <h1>Todo lo que hago<br>en <span class="gd">Geometry Dash</span></h1>
-    <p>Desde Extreme Demons hasta mods con Geode SDK — este es el rincón GD del sitio.</p>
-  </section>
+    <div>
+      <div class="hero-label">Dev &amp; Creador de contenido</div>
+      <h1>
+        <span class="hi">hola, soy</span>
+        <span class="name">Daling</span><br>
+        <span class="role">Dev. Builder. Gamer.</span>
+      </h1>
+      <p class="hero-desc">Construyo herramientas, niveles y proyectos en Roblox y Geometry Dash. Algunos terminados, otros eternamente "en progreso" — pero siempre en movimiento.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="geometrydash/index.html">Geometry Dash →</a>
+        <a class="btn" href="https://www.youtube.com/@DalingYT" target="_blank" rel="noopener">YouTube</a>
+        <a class="btn" href="https://github.com/DalingYT" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
 
-  <!-- ANGELIC FEATURE -->
-  <section>
-    <div class="sec-label">Proyecto insignia</div>
-    <div class="sec-h">Angelic</div>
-    <div class="angelic-card">
-      <div class="angelic-inner">
-        <div class="angelic-top">
-          <div>
-            <div class="angelic-title">Angelic</div>
-            <div class="angelic-desc">
-              Un nivel Extreme Demon de más de 2 horas, dedicado por completo a la discografía de <a href="https://www.youtube.com/@noize_princess" target="_blank" rel="noopener" style="color:var(--spark);text-decoration:underline;text-decoration-color:rgba(192,132,252,.4)">Cacola (@noize_princess)</a>. Parte 2 completada, Parte 3 en proceso.
-            </div>
-          </div>
-          <span class="difficulty-badge">Extreme Demon</span>
-        </div>
-
-        <div class="progress-wrap">
-          <div class="progress-meta">
-            <span>Progreso general</span>
-            <span>2 / 11 partes</span>
-          </div>
-          <div class="progressbar">
-            <div class="progressbar-fill" style="width: 18%;"></div>
-          </div>
-        </div>
-
-        <div class="statrow">
-          <div class="stat">
-            <span class="num">2h+</span>
-            <span class="lbl">Duración</span>
-          </div>
-          <div class="stat">
-            <span class="num">2 / 11</span>
-            <span class="lbl">Partes</span>
-          </div>
-          <div class="stat">
-            <span class="num">18%</span>
-            <span class="lbl">Completado</span>
-          </div>
-        </div>
-
-        <div class="angelic-btns">
-          <div class="id-box" title="ID del nivel en GD">
-            <span class="id-label">Demo Parte 1</span>
-            145304886
-          </div>
-          <a class="btn" href="https://discord.gg/gMcGegS55y" target="_blank" rel="noopener">💬 Discord — bugs / sugerencias</a>
-        </div>
+    <!-- Terminal -->
+    <div class="terminal" aria-hidden="true">
+      <div class="terminal-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="terminal-title">daling@dev ~ bash</span>
+      </div>
+      <div class="terminal-body">
+        <span class="t-line"><span class="t-muted">$</span> <span class="t-blue">whoami</span></span>
+        <span class="t-line t-green">→ Daling</span>
+        <span class="t-line"> </span>
+        <span class="t-line"><span class="t-muted">$</span> <span class="t-blue">cat skills.txt</span></span>
+        <span class="t-line"><span class="t-spark">Luau</span>  <span class="t-muted"># Roblox scripting</span></span>
+        <span class="t-line"><span class="t-spark">C++</span>   <span class="t-muted"># Geode / GD mods</span></span>
+        <span class="t-line"><span class="t-spark">HTML</span>  <span class="t-muted"># como este sitio</span></span>
+        <span class="t-line"> </span>
+        <span class="t-line"><span class="t-muted">$</span> <span class="t-blue">ls proyectos/</span></span>
+        <span class="t-line"><span class="t-warn">DalingTools/</span>  <span class="t-warn">Angelic/</span>  <span class="t-warn">Abyss/</span></span>
+        <span class="t-line"> </span>
+        <span class="t-line"><span class="t-muted">$</span> <span class="cursor"></span></span>
       </div>
     </div>
   </section>
 
-  <!-- MODS -->
+  <!-- REPO SECTION -->
   <section>
-    <div class="sec-label">Geode SDK</div>
-    <div class="sec-h">Mods</div>
-    <div class="mods-grid">
-      <div class="mod-card rejected">
-        <div class="mod-status rejected">💀 Rechazado del índice</div>
-        <h3>Keybind Everywhere</h3>
-        <p>Lleva tus atajos de teclado a cualquier menú del juego, sin restricciones. Rechazado de Geode, pero sigue vivo.</p>
+    <div class="sec-label">Código fuente</div>
+    <div class="sec-h">Este sitio</div>
+    <a class="repo-card" href="https://github.com/DalingYT/DalingYT.github.io" target="_blank" rel="noopener">
+      <div class="repo-info">
+        <div class="repo-icon">📂</div>
+        <div>
+          <span class="repo-name">DalingYT / DalingYT.github.io</span>
+          <span class="repo-desc">Sitio personal — hecho a mano, sin frameworks</span>
+        </div>
       </div>
-      <div class="mod-card dev">
-        <div class="mod-status dev">⚙️ En desarrollo</div>
-        <h3>SpanishGeo</h3>
-        <p>Traducción al español para Geometry Dash. Porque el juego en inglés cansa.</p>
+      <div class="repo-badge">
+        <span class="badge html">HTML</span>
+        <span class="badge">Public</span>
+        <span class="btn" style="font-size:12px;padding:8px 14px;">Ver en GitHub →</span>
       </div>
-      <div class="mod-card exp">
-        <div class="mod-status exp">🧪 Experimental</div>
-        <h3>GD ↔ Claude MCP</h3>
-        <p>Integración vía Geode SDK para leer el estado del juego y controlarlo en tiempo real desde Claude.</p>
+    </a>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <div class="sec-label">Proyectos</div>
+    <div class="sec-h">Lo que estoy construyendo</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-platform">🔵 Roblox Studio</div>
+        <h3>DalingTools</h3>
+        <p>Plugin de seguridad para Roblox Studio. Escanea tu juego en busca de vulnerabilidades.</p>
+        <span class="status-pill wip">En desarrollo</span>
+      </div>
+      <div class="proj-card">
+        <div class="proj-platform">💀 Geometry Dash</div>
+        <h3>Angelic</h3>
+        <p>Extreme Demon en GD. Nivel de tributo masivo con diseño propio.</p>
+        <span class="status-pill wip">En desarrollo</span>
+      </div>
+      <div class="proj-card">
+        <div class="proj-platform">🕳️ Roblox</div>
+        <h3>Abyss</h3>
+        <p>Juego inspirado en Forsaken. Terror y atmósfera. Quiero terminarlo y lanzarlo al público.</p>
+        <span class="status-pill wip">Próximamente</span>
+      </div>
+      <div class="proj-card">
+        <div class="proj-platform">⚙️ Geometry Dash</div>
+        <h3>GeoMods</h3>
+        <p>Framework de modding para GD — core en C++ con scripting en Lua.</p>
+        <span class="status-pill wip">Concepto activo</span>
+      </div>
+      <div class="proj-card">
+        <div class="proj-platform">🎮 Roblox</div>
+        <h3>Obby Divertido</h3>
+        <p>Obby en Roblox con GamePass VIP. El clásico que sigue en pie.</p>
+        <span class="status-pill live">Publicado</span>
+      </div>
+      <div class="proj-card">
+        <div class="proj-platform">🔔 Roblox</div>
+        <h3>NotificationsCore</h3>
+        <p>Sistema de notificaciones para Roblox. Planeado para vender como herramienta.</p>
+        <span class="status-pill wip">En progreso</span>
       </div>
     </div>
   </section>
 
-  <!-- CONTENIDO -->
+  <!-- LINKS -->
   <section>
-    <div class="sec-label">Ver más</div>
-    <div class="sec-h">Contenido</div>
-    <div class="yt-row">
-      <a class="btn primary" href="https://www.youtube.com/@DalingYT" target="_blank" rel="noopener">▶ Canal principal — DalingYT</a>
-      <p>Clips, showcases y todo lo relacionado con GD en YouTube.</p>
+    <div class="sec-label">Encuéntrame</div>
+    <div class="sec-h">Links</div>
+    <div class="links-grid">
+      <a class="link-card" href="https://www.youtube.com/@DalingYT" target="_blank" rel="noopener">
+        <div class="link-icon">▶️</div>
+        <div class="link-info">
+          <div class="link-name">YouTube</div>
+          <div class="link-sub">@DalingYT</div>
+        </div>
+      </a>
+      <a class="link-card" href="https://www.roblox.com/es/users/5090256817/profile#!/about" target="_blank" rel="noopener">
+        <div class="link-icon">🟦</div>
+        <div class="link-info">
+          <div class="link-name">Roblox</div>
+          <div class="link-sub">Daling</div>
+        </div>
+      </a>
+      <a class="link-card" href="https://discord.gg/gMcGegS55y" target="_blank" rel="noopener">
+        <div class="link-icon">💬</div>
+        <div class="link-info">
+          <div class="link-name">Discord</div>
+          <div class="link-sub">Servidor de Daling</div>
+        </div>
+      </a>
+      <a class="link-card" href="https://github.com/DalingYT" target="_blank" rel="noopener">
+        <div class="link-icon">🐙</div>
+        <div class="link-info">
+          <div class="link-name">GitHub</div>
+          <div class="link-sub">DalingYT</div>
+        </div>
+      </a>
+      <a class="link-card" href="geometrydash/index.html">
+        <div class="link-icon">💠</div>
+        <div class="link-info">
+          <div class="link-name">Geometry Dash</div>
+          <div class="link-sub">Niveles y mods</div>
+        </div>
+      </a>
     </div>
   </section>
 </div>
 
 <footer>
-  <a href="https://dalingyt.github.io">dalingyt.github.io</a>
-  &nbsp;/&nbsp; geometrydash
-  &nbsp;—&nbsp; <a href="https://github.com/DalingYT/DalingYT.github.io" target="_blank" rel="noopener">ver en GitHub</a>
+  <a href="https://github.com/DalingYT/DalingYT.github.io" target="_blank" rel="noopener">dalingyt.github.io</a>
+  &nbsp;—&nbsp; hecho a mano, sin frameworks
 </footer>
 
 </body>
